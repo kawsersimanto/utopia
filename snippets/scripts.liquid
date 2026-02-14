@@ -1,0 +1,25 @@
+<script type="importmap">
+  {
+    "imports": {
+      "swiper": "{{ 'swiper.min.js' | asset_url }}"
+    }
+  }
+</script>
+
+<script type="module" src="{{ 'swiper.min.js' | asset_url }}" defer></script>
+{% comment %}
+  <script type="module">
+    import Swiper from 'swiper';
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    });
+  </script>
+{% endcomment %}
