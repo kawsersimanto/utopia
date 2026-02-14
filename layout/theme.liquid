@@ -18,7 +18,7 @@
     {% endunless %}
 
     {% # Load and preload the critical CSS %}
-    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    {% comment %} {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -30,18 +30,7 @@
 
   <body>
     {% sections 'header-group' %}
-
     {{ content_for_layout }}
-    <button id="openModalButton">Open Modal</button>
-    <div id="modalEl">Hello</div>
-    <div class="swiper max-w-full">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
     {% sections 'footer-group' %}
   </body>
 </html>
