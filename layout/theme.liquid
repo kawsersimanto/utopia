@@ -6,6 +6,8 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
       {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
     {% endunless %}
+
+    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
     {% render 'meta-tags' %}
     {% render 'stylesheet' %}
     {% render 'scripts' %}
