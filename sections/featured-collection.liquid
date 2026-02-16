@@ -1,0 +1,74 @@
+<section>
+  <div class="container">
+    <div class="grid grid-cols-4 gap-5">
+      {% for product in section.settings.feature_collection.products %}
+        <div class="w-full max-w-sm bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs">
+          <a href="{{ product.url }}">
+            <img
+              class="rounded-base mb-6"
+              width="1000"
+              height="500"
+              src="{{ product.featured_image | image_url: width: 1000 }}"
+              alt="{{ product.title }}"
+              class="h-[500px] w-full object-cover"
+            >
+          </a>
+          <div>
+            <div class="flex items-center space-x-3 mb-6"></div>
+            <a href="{{ product.url }}">
+              <h5 class="text-xl text-heading font-semibold tracking-tight">
+                {{ product.title }}
+              </h5>
+            </a>
+            <div class="flex items-center justify-between mt-6">
+              <span class="text-3xl font-extrabold text-heading">${{ product.price | money_with_currency }}</span>
+              <button
+                type="button"
+                class="inline-flex items-center"
+              >
+                <svg
+                  class="w-4 h-4 me-1.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                </svg>
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature Collection",
+  "class": "featured-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "collection",
+      "id": "feature_collection",
+      "label": "Collection"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Feature Collection"
+    }
+  ]
+}
+{% endschema %}
