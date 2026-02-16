@@ -23,6 +23,16 @@
     ]
   },
   {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Site Logo"
+      }
+    ]
+  },
+  {
     "name": "t:general.layout",
     "settings": [
       {

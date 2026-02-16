@@ -1,7 +1,19 @@
 <header>
-  <h2 class="header__title">
-    {{ shop.name | link_to: routes.root_url }}
-  </h2>
+  {% if settings.logo %}
+    <a href="{{ routes.root_url }}">
+      <img
+        src="{{ settings.logo | image_url }}"
+        width="120"
+        height="80"
+        alt="{{ shop.name }} Logo"
+        class="object-contain h-auto md:w-[120px] w-[80px]"
+      >
+    </a>
+  {% else %}
+    <h2 class="header__title">
+      {{ shop.name | link_to: routes.root_url }}
+    </h2>
+  {% endif %}
 
   <div class="header__menu">
     {% for link in section.settings.menu.links %}
